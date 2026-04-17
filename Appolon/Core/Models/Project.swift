@@ -12,7 +12,7 @@ import SwiftData
 final class Project {
     var id: UUID = UUID()
     var name: String = ""
-    var projectDesciption: String = ""
+    var projectDescription: String = ""
     var createdAt: Date = Date()
     var archived: Bool = false
     var order: Int = 0
@@ -26,7 +26,7 @@ final class Project {
     init(name: String, description: String = "", order: Int = 0) {
         self.id = UUID()
         self.name = name
-        self.projectDesciption = description
+        self.projectDescription = description
         self.createdAt = Date()
         self.archived = false
         self.order = order

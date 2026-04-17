@@ -10,9 +10,11 @@ import SwiftData
 
 @main
 struct AppolonApp: App {
+    @NSApplicationDelegateAdaptor(AppDelegate.self) private var appDelegate
+    
     var body: some Scene {
-        WindowGroup {
-            SeedCheckView()
+        Settings {
+            EmptyView()
         }
         .modelContainer(AppolonModelContainer.shared)
     }

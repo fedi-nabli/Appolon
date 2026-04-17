@@ -73,7 +73,7 @@ enum SeedData {
         // Some activity log entries
         let act1 = ActivityEntry(kind: .taskCompleted,
                                  taskTitle: "Fix KKT inversion bug",
-                                 listName: "SMP Implementation",
+                                 listName: "SMO Implementation",
                                  timestamp: Date().addingTimeInterval(-3600))
         act1.project = project
         let act2 = ActivityEntry(kind: .subtaskCompleted,
