@@ -10,11 +10,19 @@ import SwiftUI
 
 final class AppDelegate: NSObject, NSApplicationDelegate {
     private var statusItemController: StatusItemController?
+    private var panelController: PanelController?
     
     func applicationDidFinishLaunching(_ notification: Notification) {
         // .accessory = no Dock icon, no global menu bar, background style app
         NSApp.setActivationPolicy(.accessory)
-        statusItemController = StatusItemController()
+        
+        let panel = PanelController()
+        let statusItem = StatusItemController(
+            onOpenPanel: { [weak panel] in panel?.toggle() }
+        )
+        
+        self.panelController = panel
+        self.statusItemController = statusItem
     }
     
     // Menu bar app shouldn't quit just because a window closed

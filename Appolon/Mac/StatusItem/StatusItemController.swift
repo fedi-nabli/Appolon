@@ -12,8 +12,10 @@ import SwiftData
 final class StatusItemController: NSObject {
     private let statusItem: NSStatusItem
     private let popover: NSPopover
+    private let onOpenPanel: () -> Void
     
-    override init() {
+    init(onOpenPanel: @escaping () -> Void) {
+        self.onOpenPanel = onOpenPanel
         self.statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
         
         self.popover = NSPopover()
@@ -99,7 +101,8 @@ final class StatusItemController: NSObject {
     }
     
     @objc private func menuOpenPanel() {
-        NSLog("Appolon: Open Panel stub")
+        onOpenPanel()
+        popover.performClose(nil) // close popover if it was open
     }
     
     @objc private func menuOpenSettings() {

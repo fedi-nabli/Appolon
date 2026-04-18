@@ -58,10 +58,10 @@ struct PopoverView: View {
                 Button(project.name) {
                     selectedProjectID = project.id
                 }
-                
-                if projects.isEmpty {
-                    Text("No projects")
-                }
+            }
+            
+            if projects.isEmpty {
+                Text("No projects")
             }
         } label: {
             HStack(spacing: 6) {
