@@ -34,15 +34,15 @@ struct PopoverView: View {
     
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
-            Header
+            header
             Divider()
-            StatsStrip
+            statsStrip
             Divider()
-            WorkingOnSection
+            workingOnSection
             Divider()
-            RecentSection
+            recentSection
             Spacer(minLength: 0)
-            Footer
+            footer
         }
         .frame(width: 320)
         .onAppear() {
@@ -52,7 +52,7 @@ struct PopoverView: View {
         }
     }
     
-    private var Header: some View {
+    private var header: some View {
         Menu {
             ForEach(projects) { project in
                 Button(project.name) {
@@ -81,7 +81,7 @@ struct PopoverView: View {
         .padding(.vertical, 10)
     }
     
-    private var StatsStrip: some View {
+    private var statsStrip: some View {
         let tasks = allTasks
         let done = tasks.filter { $0.state == .done }.count
         let inProgress = tasks.filter { $0.state == .inProgress }.count
@@ -99,7 +99,7 @@ struct PopoverView: View {
         .padding(.vertical, 8)
     }
     
-    private var RecentSection: some View {
+    private var recentSection: some View {
         let entries = Array((selectedProject?.activitySorted ?? []).prefix(5))
         
         return VStack(alignment: .leading, spacing: 8) {
@@ -122,7 +122,7 @@ struct PopoverView: View {
         .padding(.vertical, 10)
     }
     
-    private var WorkingOnSection: some View {
+    private var workingOnSection: some View {
         let tasks = allTasks.filter { $0.state == .inProgress }
         
         return VStack(alignment: .leading, spacing: 8) {
@@ -145,7 +145,7 @@ struct PopoverView: View {
         .padding(.vertical, 10)
     }
     
-    private var Footer: some View {
+    private var footer: some View {
         HStack {
             Spacer()
             Text("Open Panel")
